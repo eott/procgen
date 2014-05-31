@@ -1,6 +1,3 @@
-from collections import deque
-
-
 class EventSystem:
     """Handles the distribution of events across the subsystems of the overall game.
        Classes can attach themselves to specific events with a callback provided,
@@ -15,11 +12,11 @@ class EventSystem:
         else:
             EventSystem._eventListener[eventType].append(listener)
 
-    def queueEvent(self, eventType, attachedData):
-        EventSystem._eventQueue.append([eventType, attachedData])
+    def queueEvent(self, event):
+        EventSystem._eventQueue.append(event)
 
     def processEvents(self):
-        for eventData in EventSystem._eventQueue:
-            for listener in EventSystem._eventListener[eventData[0]]:
-                listener.triggerEvent(eventData)
-        EventSystem._eventQueue = deque()
+        for event in EventSystem._eventQueue:
+            for listener in EventSystem._eventListener[event.eventType]:
+                listener.triggerEvent(event)
+        EventSystem._eventQueue = []
