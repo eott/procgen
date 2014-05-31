@@ -1,4 +1,6 @@
 import pygame
+from GameState import *
+
 from pygame.locals import *
 
 FRAMES_PER_SECOND = 30

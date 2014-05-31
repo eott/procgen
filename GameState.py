@@ -9,15 +9,15 @@ class GameState:
 
     def getCurrentState(self):
         """Returns the game state the game is currently in."""
-        return self._currentState
+        return GameState._currentState
 
     def advanceCurrentState(self):
         """Advances the game state to the next state. Returns if the change was successful."""
-        if self._currentState == self.GAME_STATE_INIT:
-            self._currentState = self.GAME_STATE_RUNNING
+        if GameState._currentState == GameState.GAME_STATE_INIT:
+            GameState._currentState = GameState.GAME_STATE_RUNNING
             return True
-        elif self._currentState == self.GAME_STATE_RUNNING:
-            self._currentState = self.GAME_STATE_ENDING
+        elif GameState._currentState == GameState.GAME_STATE_RUNNING:
+            GameState._currentState = GameState.GAME_STATE_ENDING
             return True
         else:
             return False
