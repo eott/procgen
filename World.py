@@ -16,14 +16,15 @@ class World:
     @staticmethod
     def parseObjectFromString(strLine):
         values = strLine.split(';')
-        return Tile(values[0], values[1], values[2])
+        return Tile(values[0], int(values[1]), int(values[2]))
 
     @staticmethod
     def initImageMapping():
         mapping = {}
-        for filename in os.listdir(os.getcwd()):
-            mapping[filename.split('.', 1)[0]] = pygame.image.load(filename)
+        for filename in os.listdir(os.getcwd()+'/images/'):
+            mapping[filename.split('.', 1)[0]] = pygame.image.load('images/'+filename)
         return mapping
+
 
 class Tile:
 

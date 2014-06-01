@@ -25,6 +25,8 @@ font = pygame.font.Font('freesansbold.ttf', 32)
 eventSystem = EventSystem()
 gameState = GameState()
 clock = pygame.time.Clock()
+world = World()
+world.loadWorldFromFile('Testworld.pfe')
 
 # Create window
 screen = pygame.display.set_mode((1024, 758))
@@ -46,6 +48,10 @@ while gameState.getCurrentState() == gameState.GAME_STATE_RUNNING:
             eventSystem.queueEvent(GameEvent('quit'))
         elif event.type in (KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONUP, MOUSEBUTTONDOWN):
             KeyMapping.handleInputEvent(event)
+
+    # Render objects of world as static images
+    for object in world.objects:
+        screen.blit(world.objectImageMapping[object.name], (object.x * TILESIZE, object.y * TILESIZE))
 
     # Update display and complete frame
     pygame.display.update()
