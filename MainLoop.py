@@ -3,11 +3,13 @@ from GameState import *
 from KeyMapping import *
 from EventSystem import *
 from GameEvent import *
+from World import *
 
 from pygame.locals import *
 
 # Useful constants
 FRAMES_PER_SECOND = 30
+TILESIZE = 32
 
 # pygame's init method must be called before all other pygame methods
 pygame.init()

@@ -1,7 +1,12 @@
+import os
+import pygame
+
+
 class World:
 
-    objectImageMapping = {}
-    objects = []
+    def __init__(self):
+        self.objectImageMapping = World.initImageMapping()
+        self.objects = []
 
     def loadWorldFromFile(self, filename):
         with open(filename, 'r') as file:
@@ -13,6 +18,12 @@ class World:
         values = strLine.split(';')
         return Tile(values[0], values[1], values[2])
 
+    @staticmethod
+    def initImageMapping():
+        mapping = {}
+        for filename in os.listdir(os.getcwd()):
+            mapping[filename.split('.', 1)[0]] = pygame.image.load(filename)
+        return mapping
 
 class Tile:
 
