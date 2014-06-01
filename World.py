@@ -10,4 +10,13 @@ class World:
 
     @staticmethod
     def parseObjectFromString(strLine):
-        pass
+        values = strLine.split(';')
+        return Tile(values[0], values[1], values[2])
+
+
+class Tile:
+
+    def __init__(self, name, x, y):
+        self.name = name
+        self.x = x
+        self.y = y
