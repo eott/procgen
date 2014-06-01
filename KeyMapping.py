@@ -5,7 +5,7 @@ from pygame.locals import *
 class KeyMapping:
 
     @staticmethod
-    def handleInputEvent(self, event):
+    def handleInputEvent(event):
         if event.type == KEYDOWN:
             KeyMapping._keydownEvent(event)
         elif event.type == KEYUP:
@@ -18,21 +18,21 @@ class KeyMapping:
             KeyMapping._mousemotionEvent(event)
 
     @staticmethod
-    def _keydownEvent(self):
+    def _keydownEvent(event):
         pass
 
     @staticmethod
-    def _keyupEvent(self):
+    def _keyupEvent(event):
         pass
 
     @staticmethod
-    def _mousedownEvent(self):
+    def _mousedownEvent(event):
         pass
 
     @staticmethod
-    def _mouseupEvent(self):
+    def _mouseupEvent(event):
         pass
 
     @staticmethod
-    def _mousemotionEvent(self):
+    def _mousemotionEvent(event):
         pass
