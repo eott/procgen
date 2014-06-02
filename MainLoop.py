@@ -4,6 +4,7 @@ from KeyMapping import *
 from EventSystem import *
 from GameEvent import *
 from World import *
+from Camera import *
 
 from pygame.locals import *
 
@@ -27,6 +28,7 @@ gameState = GameState()
 clock = pygame.time.Clock()
 world = World()
 world.loadWorldFromFile('Testworld.pfe')
+camera = Camera()
 
 # Create window
 screen = pygame.display.set_mode((1024, 758))
@@ -51,7 +53,7 @@ while gameState.getCurrentState() == gameState.GAME_STATE_RUNNING:
 
     # Render objects of world as static images
     for object in world.objects:
-        screen.blit(world.objectImageMapping[object.name], (object.x * TILESIZE, object.y * TILESIZE))
+        screen.blit(world.objectImageMapping[object.name], (object.x * TILESIZE - camera.x, object.y * TILESIZE - camera.y))
 
     # Update display and complete frame
     pygame.display.update()
