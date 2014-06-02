@@ -29,6 +29,7 @@ clock = pygame.time.Clock()
 world = World()
 world.loadWorldFromFile('Testworld.pfe')
 camera = Camera()
+KeyMapping.setCamera(camera)
 
 # Create window
 screen = pygame.display.set_mode((1024, 758))

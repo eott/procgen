@@ -6,8 +6,9 @@ class Camera:
         self.x = 0
         self.y = 0
         self.zoom = 1.0
-        self._width = 15 # tiles, not pixel
-        self._height = 9 # tiles, not pixel
+        self.speed = 50  # pixel, not tiles
+        self._width = 15  # tiles, not pixel
+        self._height = 9  # tiles, not pixel
 
     def moveTo(self, x, y):
         self.x = x
