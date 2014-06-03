@@ -38,6 +38,8 @@ pygame.display.set_caption('Procedural Generation Viewer')
 # Initialization complete, continue with game loop
 gameState.advanceCurrentState()
 while gameState.getCurrentState() == gameState.GAME_STATE_RUNNING:
+    # Reset screen
+    screen.fill(colorBlack)
 
     # Render placeholder GUI
     levelName = font.render('Testlevel', False, colorWhite)
