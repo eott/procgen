@@ -1,5 +1,6 @@
 from GameEvent import *
 from pygame.locals import *
+from Movement import *
 
 
 class KeyMapping:
@@ -12,8 +13,8 @@ class KeyMapping:
     }
 
     @staticmethod
-    def setCamera(cam):
-        KeyMapping.camera = cam
+    def setMovement(mov):
+        KeyMapping.movement = mov
 
     @staticmethod
     def handleInputEvent(event):
@@ -33,13 +34,13 @@ class KeyMapping:
         if event.unicode in KeyMapping.keyEventTypeMapping:
             move = KeyMapping.keyEventTypeMapping[event.unicode]
             if move == GameEvent.MOVE_UP:
-                KeyMapping.camera.moveBy(0, -KeyMapping.camera.speed)
+                KeyMapping.movement.addVelocity(Movement.UP)
             elif move == GameEvent.MOVE_DOWN:
-                KeyMapping.camera.moveBy(0, KeyMapping.camera.speed)
+                KeyMapping.movement.addVelocity(Movement.DOWN)
             elif move == GameEvent.MOVE_LEFT:
-                KeyMapping.camera.moveBy(-KeyMapping.camera.speed, 0)
+                KeyMapping.movement.addVelocity(Movement.LEFT)
             elif move == GameEvent.MOVE_RIGHT:
-                KeyMapping.camera.moveBy(KeyMapping.camera.speed, 0)
+                KeyMapping.movement.addVelocity(Movement.RIGHT)
 
     @staticmethod
     def _keyupEvent(event):
