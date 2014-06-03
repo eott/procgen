@@ -6,10 +6,10 @@ from Movement import *
 class KeyMapping:
 
     keyEventTypeMapping = {
-        'w': GameEvent.MOVE_UP,
-        's': GameEvent.MOVE_DOWN,
-        'a': GameEvent.MOVE_LEFT,
-        'd': GameEvent.MOVE_RIGHT,
+        K_w: GameEvent.MOVE_UP,
+        K_s: GameEvent.MOVE_DOWN,
+        K_a: GameEvent.MOVE_LEFT,
+        K_d: GameEvent.MOVE_RIGHT,
     }
 
     @staticmethod
@@ -31,8 +31,8 @@ class KeyMapping:
 
     @staticmethod
     def _keydownEvent(event):
-        if event.unicode in KeyMapping.keyEventTypeMapping:
-            move = KeyMapping.keyEventTypeMapping[event.unicode]
+        if event.key in KeyMapping.keyEventTypeMapping:
+            move = KeyMapping.keyEventTypeMapping[event.key]
             if move == GameEvent.MOVE_UP:
                 KeyMapping.movement.addVelocity(Movement.UP)
             elif move == GameEvent.MOVE_DOWN:
@@ -44,7 +44,16 @@ class KeyMapping:
 
     @staticmethod
     def _keyupEvent(event):
-        pass
+        if event.key in KeyMapping.keyEventTypeMapping:
+            move = KeyMapping.keyEventTypeMapping[event.key]
+            if move == GameEvent.MOVE_UP:
+                KeyMapping.movement.subVelocity(Movement.UP)
+            elif move == GameEvent.MOVE_DOWN:
+                KeyMapping.movement.subVelocity(Movement.DOWN)
+            elif move == GameEvent.MOVE_LEFT:
+                KeyMapping.movement.subVelocity(Movement.LEFT)
+            elif move == GameEvent.MOVE_RIGHT:
+                KeyMapping.movement.subVelocity(Movement.RIGHT)
 
     @staticmethod
     def _mousedownEvent(event):
