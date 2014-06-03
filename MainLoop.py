@@ -29,7 +29,8 @@ clock = pygame.time.Clock()
 world = World()
 world.loadWorldFromFile('Testworld.pfe')
 camera = Camera()
-movement = Movement
+movement = Movement()
+movement.setPuppet(camera)
 KeyMapping.setMovement(movement)
 
 # Create window
@@ -54,6 +55,9 @@ while gameState.getCurrentState() == gameState.GAME_STATE_RUNNING:
             eventSystem.queueEvent(GameEvent('quit'))
         elif event.type in (KEYDOWN, KEYUP, MOUSEMOTION, MOUSEBUTTONUP, MOUSEBUTTONDOWN):
             KeyMapping.handleInputEvent(event)
+
+    # Update game model
+    movement.doMovement()
 
     # Render objects of world as static images
     for object in world.objects:
