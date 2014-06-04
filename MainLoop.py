@@ -44,7 +44,7 @@ while gameState.getCurrentState() == gameState.GAME_STATE_RUNNING:
     screen.fill(colorBlack)
 
     # Render placeholder GUI
-    levelName = font.render('Testlevel', False, colorWhite)
+    levelName = font.render(world.attributes['world_name'], False, colorWhite)
     rectangle = levelName.get_rect()
     screen.blit(levelName, rectangle)
 

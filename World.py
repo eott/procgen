@@ -8,13 +8,14 @@ class World:
         self.objectImageMapping = []
         self.objects = []
         self.objectDef = []
-        self.attributes = []
+        self.attributes = {}
 
     def loadWorldFromFile(self, filename):
         with open(filename, 'r') as file:
             for line in file:
                 if line[0] == '#':
-                    self.attributes.append(World.parseAttributeFromString(line))
+                    attr = World.parseAttributeFromString(line)
+                    self.attributes[attr.name] = attr.value
                 elif line[0] == '@':
                     self.objectDef.append(World.parseObjectDefFromString(line))
                 else:
@@ -24,7 +25,7 @@ class World:
     @staticmethod
     def parseAttributeFromString(strLine):
         values = strLine[1:].split(';')
-        return Attribute(values[0], values[1])
+        return Attribute(values[0], values[1].rstrip())
 
     @staticmethod
     def parseObjectDefFromString(strLine):
