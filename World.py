@@ -5,7 +5,7 @@ import pygame
 class World:
 
     def __init__(self):
-        self.objectImageMapping = World.initImageMapping()
+        self.objectImageMapping = []
         self.objects = []
         self.objectDef = []
         self.attributes = []
@@ -19,6 +19,7 @@ class World:
                     self.objectDef.append(World.parseObjectDefFromString(line))
                 else:
                     self.objects.append(World.parseObjectFromString(line))
+        self.objectImageMapping = self.initImageMapping()
 
     @staticmethod
     def parseAttributeFromString(strLine):
@@ -35,11 +36,10 @@ class World:
         values = strLine.split(';')
         return Tile(values[0], int(values[1]), int(values[2]))
 
-    @staticmethod
-    def initImageMapping():
+    def initImageMapping(self):
         mapping = {}
-        for filename in os.listdir(os.getcwd()+'/images/'):
-            mapping[filename.split('.', 1)[0]] = pygame.image.load('images/'+filename)
+        for definition in self.objectDef:
+            mapping[definition.name] = pygame.image.load('images/' + definition.imageName + '.png')
         return mapping
 
 

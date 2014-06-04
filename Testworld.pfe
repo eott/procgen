@@ -2,28 +2,28 @@
 @wooden_floor;Wooden Floor;A floor tile made of wood
 @box;Box;A generic wooden box
 @potted_plant;Potted Plant;A plant in a baked clay pot
-wooden_floor;1;1
-potted_plant;2;1
-potted_plant;3;1
-wooden_floor;4;1
-box;5;1
-wooden_floor;1;2
-wooden_floor;2;2
-wooden_floor;3;2
-wooden_floor;4;2
-box;5;2
-wooden_floor;1;3
-wooden_floor;2;3
-wooden_floor;3;3
-wooden_floor;4;3
-box;5;3
-potted_plant;1;4
-box;2;4
-wooden_floor;3;4
-wooden_floor;4;4
-wooden_floor;5;4
-wooden_floor;1;5
-wooden_floor;2;5
-wooden_floor;3;5
-wooden_floor;4;5
-wooden_floor;5;5
+Wooden Floor;1;1
+Potted Plant;2;1
+Potted Plant;3;1
+Wooden Floor;4;1
+Box;5;1
+Wooden Floor;1;2
+Wooden Floor;2;2
+Wooden Floor;3;2
+Wooden Floor;4;2
+Box;5;2
+Wooden Floor;1;3
+Wooden Floor;2;3
+Wooden Floor;3;3
+Wooden Floor;4;3
+Box;5;3
+Potted Plant;1;4
+Box;2;4
+Wooden Floor;3;4
+Wooden Floor;4;4
+Wooden Floor;5;4
+Wooden Floor;1;5
+Wooden Floor;2;5
+Wooden Floor;3;5
+Wooden Floor;4;5
+Wooden Floor;5;5
