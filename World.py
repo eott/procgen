@@ -16,8 +16,9 @@ class World:
             1 : Value
     * An object definition starts with @ and has the fields:
             0 : Image filename, without extension (images are assumed to be in .png format
-            1 : Object name (identifier)
-            2 : Human readable description and other information
+            1 : File extension, should be compatible with pygame's image module
+            2 : Object name (identifier)
+            3 : Human readable description and other information
     * An object instance starts with any character but @ and # and has the fields:
             0 : Object name
             1 : x coordinate, in units of tile size
@@ -54,7 +55,7 @@ class World:
     @staticmethod
     def parseObjectDefFromString(strLine):
         values = strLine[1:].split(';')
-        return Definition(values[1], values[0], values[2])
+        return Definition(values[2], values[0], values[1], values[3])
 
     @staticmethod
     def parseObjectFromString(strLine):
@@ -64,7 +65,9 @@ class World:
     def initImageMapping(self):
         mapping = {}
         for definition in self.objectDef:
-            mapping[definition.name] = pygame.image.load('images/' + definition.imageName + '.png')
+            mapping[definition.name] = pygame.image.load(
+                'images/' + definition.imageName + '.' + definition.fileExtension
+            )
         return mapping
 
 
@@ -77,9 +80,10 @@ class Attribute:
 
 class Definition:
 
-    def __init__(self, name, imageName, description):
+    def __init__(self, name, imageName, fileExtension, description):
         self.name = name
         self.imageName = imageName
+        self.fileExtension = fileExtension
         self.description = description
 
 class Tile:
