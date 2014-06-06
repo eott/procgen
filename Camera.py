@@ -25,7 +25,9 @@ class Camera:
         self.zoom -= Camera.ZOOM_STEP
 
     def getWidth(self):
+        """Returns the width, in units of tile size, of the viewing port."""
         return (self._width * self.zoom).ceil()
 
     def getHeight(self):
+        """Returns the height, in units of tile size, of the viewing port."""
         return (self._height * self.zoom).ceil()

@@ -3,6 +3,24 @@ import pygame
 
 
 class World:
+    """Represents the game world and provides access to the game objects within it. The world file should be in the
+    following format:
+
+    * Each line contains either a world attribute, an object definition or an instance of an object.
+    * The order does not matter, but readability is encouraged
+    * The fields of each line are separated by a semicolon and must be in the correct order
+    * A world attribute starts with # and has the fields:
+            0 : Attribute name
+            1 : Value
+    * An object definition starts with @ and has the fields:
+            0 : Image filename, without extension (images are assumed to be in .png format
+            1 : Object name (identifier)
+            2 : Human readable description and other information
+    * An object instance starts with any character but @ and # and has the fields:
+            0 : Object name
+            1 : x coordinate, in units of tile size
+            2 : y coordinate, in units of tile size
+    """
 
     def __init__(self):
         self.objectImageMapping = []

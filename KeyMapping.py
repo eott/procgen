@@ -18,6 +18,7 @@ class KeyMapping:
 
     @staticmethod
     def handleInputEvent(event):
+        """Encodes and decides what to do with the given pygame event."""
         if event.type == KEYDOWN:
             KeyMapping._keydownEvent(event)
         elif event.type == KEYUP:
