@@ -10,6 +10,7 @@ class World:
     * The order does not matter, but readability is encouraged
     * The fields of each line are separated by a semicolon and must be in the correct order
     * A line starting (logically ending) with a new line or carriage return character is ignored
+    * A line starting with two forward slashes is ignored
     * A world attribute starts with # and has the fields:
             0 : Attribute name
             1 : Value
@@ -33,6 +34,8 @@ class World:
         with open(filename, 'r') as file:
             for line in file:
                 if line[0] == "\n" or line[0] == "\r":
+                    continue
+                elif line[0] == '/' and line[1] == '/':
                     continue
                 elif line[0] == '#':
                     attr = World.parseAttributeFromString(line)

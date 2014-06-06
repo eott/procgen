@@ -1,9 +1,12 @@
+// A test world primarily used for testing the view program
 #world_name;Test World
 
+// Object definitions
 @wooden_floor;Wooden Floor;A floor tile made of wood
 @box;Box;A generic wooden box
 @potted_plant;Potted Plant;A plant in a baked clay pot
 
+// Object instances
 Wooden Floor;1;1
 Potted Plant;2;1
 Potted Plant;3;1
