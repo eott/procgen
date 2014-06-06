@@ -9,6 +9,7 @@ class World:
     * Each line contains either a world attribute, an object definition or an instance of an object.
     * The order does not matter, but readability is encouraged
     * The fields of each line are separated by a semicolon and must be in the correct order
+    * A line starting (logically ending) with a new line or carriage return character is ignored
     * A world attribute starts with # and has the fields:
             0 : Attribute name
             1 : Value
@@ -31,7 +32,9 @@ class World:
     def loadWorldFromFile(self, filename):
         with open(filename, 'r') as file:
             for line in file:
-                if line[0] == '#':
+                if line[0] == "\n" or line[0] == "\r":
+                    continue
+                elif line[0] == '#':
                     attr = World.parseAttributeFromString(line)
                     self.attributes[attr.name] = attr.value
                 elif line[0] == '@':

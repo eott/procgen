@@ -1,7 +1,9 @@
 #world_name;Test World
+
 @wooden_floor;Wooden Floor;A floor tile made of wood
 @box;Box;A generic wooden box
 @potted_plant;Potted Plant;A plant in a baked clay pot
+
 Wooden Floor;1;1
 Potted Plant;2;1
 Potted Plant;3;1
