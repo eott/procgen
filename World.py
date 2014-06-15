@@ -15,7 +15,7 @@ class World:
             0 : Attribute name
             1 : Value
     * An object definition starts with @ and has the fields:
-            0 : Image filename, without extension (images are assumed to be in .png format
+            0 : Image filename, without extension
             1 : File extension, should be compatible with pygame's image module
             2 : Object name (identifier)
             3 : Human readable description and other information
