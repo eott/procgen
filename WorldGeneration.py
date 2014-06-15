@@ -13,3 +13,7 @@ class WorldGeneration:
             # World attributes
             file.write('#world_name;'+worldname+'\n')
             file.write('#seed;'+self.seed+'\n')
+
+            # World data
+            for object in self._generateWorldData():
+                file.write(object.name + ';' + object.x + ';' + object.y)
