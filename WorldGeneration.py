@@ -15,5 +15,6 @@ class WorldGeneration:
             file.write('#seed;'+self.seed+'\n')
 
             # World data
-            for object in self._generateWorldData():
+            generatedWorld = self._generateWorld()
+            for object in generatedWorld.objects:
                 file.write(object.name + ';' + str(object.x) + ';' + str(object.y))
