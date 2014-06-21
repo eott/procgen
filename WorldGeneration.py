@@ -16,5 +16,8 @@ class WorldGeneration:
 
             # World data
             generatedWorld = self._generateWorld()
+            for definition in generatedWorld.objectDef:
+                file.write("@" + definition.imageName + ';' + definition.fileExtension + ';' + definition.name
+                           + definition.description + "\n")
             for object in generatedWorld.objects:
-                file.write(object.name + ';' + str(object.x) + ';' + str(object.y))
+                file.write(object.name + ';' + str(object.x) + ';' + str(object.y) + "\n")
