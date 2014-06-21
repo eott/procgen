@@ -8,7 +8,7 @@ class WorldGeneration:
         self.rand = Random()
         self.rand.seed(seed)
 
-    def generateWorldFile(self, filepath, worldname, width, height):
+    def generateWorldFile(self, filepath, worldname):
         with open(filepath, 'w') as file:
             # World attributes
             file.write('#world_name;'+worldname+'\n')

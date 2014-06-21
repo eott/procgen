@@ -1,4 +1,5 @@
 from WorldGeneration import *
+from World import *
 
 
 class LibraryOfBabel (WorldGeneration):
@@ -8,3 +9,10 @@ class LibraryOfBabel (WorldGeneration):
 
     def _generateWorldData(self):
         return []
+
+
+class Unit(World):
+
+    def __init__(self, name):
+        World.__init__()
+        self.loadWorldFromFile("units/" + name + ".pfe")
