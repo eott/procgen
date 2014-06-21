@@ -8,11 +8,12 @@ class LibraryOfBabel (WorldGeneration):
         WorldGeneration.__init__(self, seed)
 
     def _generateWorldData(self):
-        return []
+        unit = Unit("lob-room")
+        return unit.objects
 
 
 class Unit(World):
 
     def __init__(self, name):
-        World.__init__()
+        World.__init__(self)
         self.loadWorldFromFile("units/" + name + ".pfe")

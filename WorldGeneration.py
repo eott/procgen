@@ -16,4 +16,4 @@ class WorldGeneration:
 
             # World data
             for object in self._generateWorldData():
-                file.write(object.name + ';' + object.x + ';' + object.y)
+                file.write(object.name + ';' + str(object.x) + ';' + str(object.y))
