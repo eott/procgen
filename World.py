@@ -28,9 +28,9 @@ class World:
     """
 
     def __init__(self):
-        self.objectImageMapping = []
+        self.objectImageMapping = {}
         self.objects = []
-        self.objectDef = []
+        self.objectDef = {}
         self.attributes = {}
 
     def loadWorldFromFile(self, filename):
@@ -44,7 +44,8 @@ class World:
                     attr = World.parseAttributeFromString(line)
                     self.attributes[attr.name] = attr.value
                 elif line[0] == '@':
-                    self.objectDef.append(World.parseObjectDefFromString(line))
+                    objDef = World.parseObjectDefFromString(line)
+                    self.objectDef[objDef.name] = objDef
                 else:
                     self.objects.append(World.parseObjectFromString(line))
         self.objectImageMapping = self.initImageMapping()
@@ -67,7 +68,7 @@ class World:
 
     def initImageMapping(self):
         mapping = {}
-        for definition in self.objectDef:
+        for definition in self.objectDef.values():
             mapping[definition.name] = pygame.image.load(
                 'images/' + definition.imageName + '.' + definition.fileExtension
             )
