@@ -48,6 +48,7 @@ class World:
                 else:
                     self.objects.append(World.parseObjectFromString(line))
         self.objectImageMapping = self.initImageMapping()
+        sorted(self.objects, key=lambda obj: obj.z)
 
     @staticmethod
     def parseAttributeFromString(strLine):
