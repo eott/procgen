@@ -20,4 +20,4 @@ class WorldGeneration:
                 file.write("@" + definition.imageName + ';' + definition.fileExtension + ';' + definition.name
                            + definition.description + "\n")
             for object in generatedWorld.objects:
-                file.write(object.name + ';' + str(object.x) + ';' + str(object.y) + "\n")
+                file.write(object.name + ';' + str(object.x) + ';' + str(object.y) + ';' + str(object.z) + "\n")

@@ -23,6 +23,8 @@ class World:
             0 : Object name
             1 : x coordinate, in units of tile size
             2 : y coordinate, in units of tile size
+            3 : z index, no unit. This is not meant to be a third coordinate, but simply a means to sort tiles, so they
+                are correctly displayed on top of each other
     """
 
     def __init__(self):
@@ -60,7 +62,7 @@ class World:
     @staticmethod
     def parseObjectFromString(strLine):
         values = strLine.split(';')
-        return Tile(values[0], int(values[1]), int(values[2]))
+        return Tile(values[0], int(values[1]), int(values[2]), int(values[3]))
 
     def initImageMapping(self):
         mapping = {}
@@ -86,9 +88,11 @@ class Definition:
         self.fileExtension = fileExtension
         self.description = description
 
+
 class Tile:
 
-    def __init__(self, name, x, y):
+    def __init__(self, name, x, y, z):
         self.name = name
         self.x = x
         self.y = y
+        self.z = z
